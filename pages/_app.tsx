@@ -6,6 +6,7 @@ import type { AppProps } from 'next/app';
 import { Inter } from 'next/font/google';
 
 import '@/styles/globals.css';
+import { MantineProvider } from '@mantine/core';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,9 +23,11 @@ function App({ Component, pageProps }: AppProps<{}>) {
           },
         }}
       />
+      <MantineProvider>
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
       </QueryClientProvider>
+      </MantineProvider>
     </div>
   );
 }
