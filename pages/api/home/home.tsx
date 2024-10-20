@@ -161,15 +161,15 @@ const Home = ({ defaultModelId }: Props) => {
 
   // CONVERSATION OPERATIONS  --------------------------------------------
 
-  const handleNewConversation = () => {
+  const handleNewConversation = (prompt: string | null = null) => {
     const lastConversation = conversations[conversations.length - 1];
 
     const newConversation: Conversation = {
       id: uuidv4(),
       name: t('New Conversation'),
-      messages: [],
+      messages: prompt ? [{ role: 'user', content: prompt }] : [],
       model: lastConversation?.model,
-      prompt: DEFAULT_SYSTEM_PROMPT,
+      prompt: prompt ?? DEFAULT_SYSTEM_PROMPT,
       temperature: lastConversation?.temperature ?? DEFAULT_TEMPERATURE,
       folderId: null,
     };

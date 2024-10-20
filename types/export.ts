@@ -42,3 +42,8 @@ export interface ExportFormatV4 {
   folders: FolderInterface[];
   prompts: Prompt[];
 }
+
+export interface ExportFormatV5 {
+  virsion: 5;
+  
+}
